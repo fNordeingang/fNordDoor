@@ -56,7 +56,7 @@ int main (void)
       setLED(RED);
       fprintf(stdout, "close door\n");
     }
-    sleep(1);
+    usleep(100);
   }
   return 0 ;
 }
