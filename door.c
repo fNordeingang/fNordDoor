@@ -56,7 +56,11 @@ int main (void)
       setLED(RED);
       fprintf(stdout, "close door\n");
     }
+    #ifdef NOTPI
+    usleep(1000000);
+    #else
     usleep(10000);
+    #endif
   }
   return 0 ;
 }
