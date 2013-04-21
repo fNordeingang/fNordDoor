@@ -1,4 +1,4 @@
-# fNordDoo
+# fNordDoor
 
 for compiling on the RaspberryPi just install wiringPi and run `make`.
 
