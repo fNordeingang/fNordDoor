@@ -74,7 +74,7 @@ int main (void)
 void init() {
   initPins();
   initLock();
-  
+
   signal(SIGUSR1, signalHandler);
   signal(SIGUSR2, signalHandler);
 }
@@ -96,13 +96,13 @@ void initPins() {
 void initLock() {
   printf("initializing doorlock...");
   pinMode(BTNOPEN, OUTPUT);
-  digitalWrite(BTNOPEN, 1);
-  usleep(1000);
   digitalWrite(BTNOPEN, 0);
   usleep(1000);
   digitalWrite(BTNOPEN, 1);
+  usleep(1000);
+  digitalWrite(BTNOPEN, 0);
   openLock(3500000);
-  digitalWrite(BTNOPEN, 0);
+  digitalWrite(BTNOPEN, 1);
   pinMode(BTNOPEN, INPUT);
   printf("done\n");
 }
@@ -136,7 +136,7 @@ void setLED(int mode) {
 }
 
 void openLock() {
-  fprintf(stdout, "open door\n");
+  fprintf(stdout, "open door command\n");
 
   setButtonMode(OUTPUT);
   digitalWrite(BTNOPEN, 0);
@@ -146,7 +146,7 @@ void openLock() {
 }
 
 void closeLock() {
-  fprintf(stdout, "close door\n");
+  fprintf(stdout, "close door command\n");
 
   setButtonMode(OUTPUT);
   digitalWrite(BTNCLOSE, 0);
