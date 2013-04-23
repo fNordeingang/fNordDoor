@@ -84,8 +84,8 @@ void initPins() {
 
   setButtonMode(INPUT);
   
-  digitalWrite(BTNOPEN, 1);
-  digitalWrite(BTNCLOSE, 1);
+  digitalWrite(BTNOPEN, 0);
+  digitalWrite(BTNCLOSE, 0);
 }
 
 void signalHandler(int sig) {
