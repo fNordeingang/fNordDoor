@@ -98,7 +98,7 @@ void initLock() {
   fflush(stdout);
   pinMode(BTNOPEN, OUTPUT);
   digitalWrite(BTNOPEN, 1);
-  usleep(500000);
+  usleep(1000000);
   digitalWrite(BTNOPEN, 0);
   /*usleep(500000);
   digitalWrite(BTNOPEN, 1);
