@@ -14,25 +14,27 @@ int digitalRead(int);
 #endif
 
 
+#define BTNOPEN     8
+#define BTNCLOSE    9
+#define BTNDOOR    11
 
-#define BTNOPEN   8
-#define BTNCLOSE  9
-#define LEDRED    7
-#define LEDBLUE  15
+#define LEDRED      7
+#define LEDBLUE    15
 
-#define RED       1
-#define BLUE      2
-#define OFF       3
+#define RED         1
+#define BLUE        2
+#define OFF         3
 
 
 void init();
 void initPins();
 void setButtonMode(int mode);
-void signalButton(int sig);
+void signalHandler(int sig);
 void setLED(int mode);
 
 int isOpenPressed();
 int isClosePressed();
+int isDoorClosed();
 
 void openLock();
 void closeLock();
@@ -49,12 +51,15 @@ int main (void)
 
   for (;;)
   {
-    if(isOpenPressed()) {
-      setLED(BLUE);
-      fprintf(stdout, "open door\n");
-    } else if(isClosePressed()) {
-      setLED(RED);
-      fprintf(stdout, "close door\n");
+    if (isDoorClosed())
+    {
+      if(isOpenPressed()) {
+        setLED(BLUE);
+        fprintf(stdout, "open door\n");
+      } else if(isClosePressed()) {
+        setLED(RED);
+        fprintf(stdout, "close door\n");
+      }
     }
     #ifdef NOTPI
     usleep(1000000);
@@ -66,8 +71,8 @@ int main (void)
 }
 
 void init() {
-  signal(SIGUSR1, signalButton);
-  signal(SIGUSR2, signalButton);
+  signal(SIGUSR1, signalHandler);
+  signal(SIGUSR2, signalHandler);
   initPins();
 }
 
@@ -83,7 +88,7 @@ void initPins() {
   digitalWrite(BTNCLOSE, 1);
 }
 
-void signalButton(int sig) {
+void signalHandler(int sig) {
   if(sig == SIGUSR1) {
     openLock();
     setLED(BLUE);
@@ -138,6 +143,11 @@ int isOpenPressed() {
 int isClosePressed() {
   return !digitalRead(BTNCLOSE);
 }
+
+int isDoorClosed() {
+  return !digitalRead(BTNDOOR);
+}
+
 
 #ifdef NOTPI
 
