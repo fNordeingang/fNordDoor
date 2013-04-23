@@ -101,7 +101,7 @@ void initLock() {
   digitalWrite(BTNOPEN, 0);
   usleep(500000);
   digitalWrite(BTNOPEN, 1);
-  usleep(3500000);
+  usleep(4500000);
   digitalWrite(BTNOPEN, 0);
   pinMode(BTNOPEN, INPUT);
   printf("done\n");
