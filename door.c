@@ -14,12 +14,12 @@ int digitalRead(int);
 #endif
 
 
-#define BTNOPEN     7
-#define BTNCLOSE   15
+#define BTNOPEN     8
+#define BTNCLOSE    9
 #define BTNDOOR    11
 
-#define LEDRED      8
-#define LEDBLUE     9
+#define LEDRED      7
+#define LEDBLUE    15
 
 #define RED         1
 #define BLUE        2
