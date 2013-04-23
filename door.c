@@ -142,7 +142,7 @@ void openLock() {
   setButtonMode(OUTPUT);
   digitalWrite(BTNOPEN, 1);
 
-  usleep(500000)
+  usleep(500000);
 
   setButtonMode(INPUT);
   digitalWrite(BTNOPEN, 0);
