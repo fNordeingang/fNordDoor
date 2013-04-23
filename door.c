@@ -97,9 +97,9 @@ void initLock() {
   printf("initializing doorlock...");
   pinMode(BTNOPEN, OUTPUT);
   digitalWrite(BTNOPEN, 1);
-  usleep(1000);
+  usleep(500000);
   digitalWrite(BTNOPEN, 0);
-  usleep(1000);
+  usleep(500000);
   digitalWrite(BTNOPEN, 1);
   usleep(3500000);
   digitalWrite(BTNOPEN, 0);
