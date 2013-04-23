@@ -97,11 +97,11 @@ void initLock() {
   printf("initializing doorlock...");
   fflush(stdout);
   pinMode(BTNOPEN, OUTPUT);
-  digitalWrite(BTNOPEN, 1);
-  usleep(1000000);
   digitalWrite(BTNOPEN, 0);
-  usleep(500000);
-  /*digitalWrite(BTNOPEN, 1);
+  usleep(1000000);
+  digitalWrite(BTNOPEN, 1);
+  /*usleep(500000);
+  digitalWrite(BTNOPEN, 1);
   usleep(4500000);
   digitalWrite(BTNOPEN, 0);*/
   pinMode(BTNOPEN, INPUT);
