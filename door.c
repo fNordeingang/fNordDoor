@@ -72,10 +72,11 @@ int main (void)
 }
 
 void init() {
-  signal(SIGUSR1, signalHandler);
-  signal(SIGUSR2, signalHandler);
   initPins();
   initLock();
+  
+  signal(SIGUSR1, signalHandler);
+  signal(SIGUSR2, signalHandler);
 }
 
 void initPins() {
@@ -102,6 +103,7 @@ void initLock() {
   digitalWrite(BTNOPEN, 1);
   openLock(3500000);
   digitalWrite(BTNOPEN, 0);
+  pinMode(BTNOPEN, INPUT);
   printf("done\n");
 }
 
