@@ -28,6 +28,7 @@ int digitalRead(int);
 
 void init();
 void initPins();
+void initLock();
 void setButtonMode(int mode);
 void signalHandler(int sig);
 void setLED(int mode);
@@ -74,6 +75,7 @@ void init() {
   signal(SIGUSR1, signalHandler);
   signal(SIGUSR2, signalHandler);
   initPins();
+  initLock();
 }
 
 void initPins() {
@@ -86,6 +88,17 @@ void initPins() {
   
   digitalWrite(BTNOPEN, 0);
   digitalWrite(BTNCLOSE, 0);
+}
+
+void initLock() {
+  pinMode(BTNOPEN, OUTPUT);
+  digitalWrite(BTNOPEN, 1);
+  usleep(1000);
+  digitalWrite(BTNOPEN, 0);
+  usleep(1000);
+  digitalWrite(BTNOPEN, 1);
+  openLock(3500000);
+  digitalWrite(BTNOPEN, 0);
 }
 
 void signalHandler(int sig) {
