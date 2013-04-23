@@ -4,13 +4,13 @@ OBJS = door.o
 ifndef NOTPI
 LIBS = -lwiringPi
 INCLUDE =	-IwiringPi/wiringPi
-CXXFLAGS = -O3 -std=c++11 $(INCLUDE)
-CFLAGS = -O3 -std=gnu11 $(INCLUDE)
+CXXFLAGS = -O3 $(INCLUDE)
+CFLAGS = -O3 $(INCLUDE)
 else
 LIBS = 
 INCLUDE =
-CXXFLAGS = -O3 -std=c++11 $(INCLUDE) -DNOTPI
-CFLAGS = -O3 -std=gnu11 $(INCLUDE) -DNOTPI 
+CXXFLAGS = -O3 $(INCLUDE) -DNOTPI
+CFLAGS = -O3 $(INCLUDE) -DNOTPI 
 endif
 
 
