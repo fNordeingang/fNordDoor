@@ -140,20 +140,24 @@ void openLock() {
   fprintf(stdout, "open door command\n");
 
   setButtonMode(OUTPUT);
-  digitalWrite(BTNOPEN, 0);
+  digitalWrite(BTNOPEN, 1);
+
+  usleep(500000)
 
   setButtonMode(INPUT);
-  digitalWrite(BTNOPEN, 1);
+  digitalWrite(BTNOPEN, 0);
 }
 
 void closeLock() {
   fprintf(stdout, "close door command\n");
 
   setButtonMode(OUTPUT);
-  digitalWrite(BTNCLOSE, 0);
+  digitalWrite(BTNCLOSE, 1);
+
+  usleep(500000);
 
   setButtonMode(INPUT);
-  digitalWrite(BTNCLOSE, 1);
+  digitalWrite(BTNCLOSE, 0);
 }
 
 int isOpenPressed() {
