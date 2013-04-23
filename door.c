@@ -105,14 +105,14 @@ void setButtonMode(int mode) {
 
 void setLED(int mode) {
   if (mode == OFF) {
-    digitalWrite(LEDRED, 0);
-    digitalWrite(LEDBLUE, 0);
-  } else if(mode == BLUE) {
-    digitalWrite(LEDRED, 0);
+    digitalWrite(LEDRED, 1);
     digitalWrite(LEDBLUE, 1);
-  } else if(mode == RED) {
+  } else if(mode == BLUE) {
     digitalWrite(LEDRED, 1);
     digitalWrite(LEDBLUE, 0);
+  } else if(mode == RED) {
+    digitalWrite(LEDRED, 0);
+    digitalWrite(LEDBLUE, 1);
   }
 }
 
