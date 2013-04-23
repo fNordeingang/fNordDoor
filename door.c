@@ -98,13 +98,13 @@ void initLock() {
   fflush(stdout);
   pinMode(BTNOPEN, OUTPUT);
   digitalWrite(BTNOPEN, 0);
-  usleep(1000000);
+  usleep(500000);
   digitalWrite(BTNOPEN, 1);
-  /*usleep(500000);
-  digitalWrite(BTNOPEN, 1);
+  usleep(500000);
+  digitalWrite(BTNOPEN, 0);
   usleep(4500000);
-  digitalWrite(BTNOPEN, 0);*/
   pinMode(BTNOPEN, INPUT);
+  digitalWrite(BTNOPEN, 1);
   printf("done\n");
 }
 
