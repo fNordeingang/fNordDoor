@@ -79,6 +79,7 @@ void init() {
 }
 
 void initPins() {
+  printf("initializing pins...");
   pinMode(LEDRED, OUTPUT);
   pinMode(LEDBLUE, OUTPUT);
 
@@ -88,9 +89,11 @@ void initPins() {
   
   digitalWrite(BTNOPEN, 0);
   digitalWrite(BTNCLOSE, 0);
+  printf("done\n");
 }
 
 void initLock() {
+  printf("initializing doorlock...");
   pinMode(BTNOPEN, OUTPUT);
   digitalWrite(BTNOPEN, 1);
   usleep(1000);
@@ -99,6 +102,7 @@ void initLock() {
   digitalWrite(BTNOPEN, 1);
   openLock(3500000);
   digitalWrite(BTNOPEN, 0);
+  printf("done\n");
 }
 
 void signalHandler(int sig) {
