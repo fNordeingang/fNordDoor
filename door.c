@@ -54,10 +54,10 @@ int main (void)
     if (isDoorClosed())
     {
       if(isOpenPressed()) {
-        setLED(BLUE);
+        //setLED(BLUE);
         fprintf(stdout, "opening door\n");
       } else if(isClosePressed()) {
-        setLED(RED);
+        //setLED(RED);
         fprintf(stdout, "closing door\n");
       }
     }
@@ -84,8 +84,8 @@ void initPins() {
 
   setButtonMode(INPUT);
   
-  digitalWrite(BTNOPEN, 1);
-  digitalWrite(BTNCLOSE, 1);
+  digitalWrite(BTNOPEN, 0);
+  digitalWrite(BTNCLOSE, 0);
 }
 
 void signalHandler(int sig) {
