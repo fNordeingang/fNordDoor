@@ -32,6 +32,7 @@ void initLock();
 void setButtonMode(int mode);
 void signalHandler(int sig);
 void setLED(int mode);
+void pressButton(int btn);
 
 int isOpenPressed();
 int isClosePressed();
@@ -137,27 +138,13 @@ void setLED(int mode) {
 }
 
 void openLock() {
-  fprintf(stdout, "open door command\n");
-
-  setButtonMode(OUTPUT);
-  digitalWrite(BTNOPEN, 1);
-
-  usleep(500000);
-
-  setButtonMode(INPUT);
-  digitalWrite(BTNOPEN, 0);
+  fprintf("open door command\n");
+  pressButton(BTNOPEN);
 }
 
 void closeLock() {
-  fprintf(stdout, "close door command\n");
-
-  setButtonMode(OUTPUT);
-  digitalWrite(BTNCLOSE, 1);
-
-  usleep(500000);
-
-  setButtonMode(INPUT);
-  digitalWrite(BTNCLOSE, 0);
+  fprintf("close door command\n");
+  pressButton(BTNCLOSE);
 }
 
 int isOpenPressed() {
@@ -170,6 +157,14 @@ int isClosePressed() {
 
 int isDoorClosed() {
   return !digitalRead(BTNDOOR);
+}
+
+void pressButton(int btn) {
+  pinMode(btn, OUTPUT);
+  digitalWrite(btn, 1);
+  usleep(500000);
+  pinMode(btn, INPUT);
+  digitalWrite(btn, 0);
 }
 
 
