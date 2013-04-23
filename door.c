@@ -54,10 +54,10 @@ int main (void)
     if (isDoorClosed())
     {
       if(isOpenPressed()) {
-        //setLED(BLUE);
+        setLED(BLUE);
         fprintf(stdout, "opening door\n");
       } else if(isClosePressed()) {
-        //setLED(RED);
+        setLED(RED);
         fprintf(stdout, "closing door\n");
       }
     }
