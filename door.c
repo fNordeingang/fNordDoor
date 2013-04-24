@@ -90,8 +90,8 @@ void initPins() {
 
   setButtonMode(OUTPUT);
   
-  digitalWrite(BTNOPEN, 0);
-  digitalWrite(BTNCLOSE, 0);
+  digitalWrite(BTNOPEN, 1);
+  digitalWrite(BTNCLOSE, 1);
   printf("done\n");
 }
 
