@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-kill -USR1 `pgrep -x door`
+kill -USR2 `pgrep -x door`

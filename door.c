@@ -82,6 +82,7 @@ void init() {
 
 void initPins() {
   printf("initializing pins...");
+  fflush(stdout);
   pinMode(LEDRED, OUTPUT);
   pinMode(LEDBLUE, OUTPUT);
 
