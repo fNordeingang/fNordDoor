@@ -57,10 +57,10 @@ int main (void)
     {
       if(isOpenPressed()) {
         setLED(BLUE);
-        fprintf(stdout, "opening door\n");
+        printf("opening door\n");
       } else if(isClosePressed()) {
         setLED(RED);
-        fprintf(stdout, "closing door\n");
+        printf("closing door\n");
       }
     }
     #ifdef NOTPI
@@ -74,7 +74,7 @@ int main (void)
 
 void init() {
   initPins();
-  initLock();
+  //initLock();
 
   signal(SIGUSR1, signalHandler);
   signal(SIGUSR2, signalHandler);
