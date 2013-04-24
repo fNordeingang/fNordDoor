@@ -147,11 +147,11 @@ void closeLock() {
 }
 
 int isOpenPressed() {
-  return !digitalRead(BTNOPEN);
+  return digitalRead(BTNOPEN);
 }
 
 int isClosePressed() {
-  return !digitalRead(BTNCLOSE);
+  return digitalRead(BTNCLOSE);
 }
 
 int isDoorClosed() {
