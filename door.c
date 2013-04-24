@@ -98,13 +98,13 @@ void initPins() {
 void initLock() {
   printf("initializing doorlock...");
   fflush(stdout);
-  digitalWrite(BTNOPEN, 1);
-  usleep(500000);
   digitalWrite(BTNOPEN, 0);
   usleep(500000);
   digitalWrite(BTNOPEN, 1);
+  usleep(500000);
+  digitalWrite(BTNOPEN, 0);
   usleep(4500000);
-  digitalWrite(BTNOPEN, 0);
+  digitalWrite(BTNOPEN, 1);
   printf("done\n");
 }
 
@@ -159,9 +159,9 @@ int isDoorClosed() {
 }
 
 void pressButton(int btn) {
-  digitalWrite(btn, 1);
-  usleep(500000);
   digitalWrite(btn, 0);
+  usleep(500000);
+  digitalWrite(btn, 1);
 }
 
 
