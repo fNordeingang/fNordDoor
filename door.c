@@ -74,7 +74,7 @@ int main (void)
 
 void init() {
   initPins();
-  //initLock();
+  initLock();
 
   signal(SIGUSR1, signalHandler);
   signal(SIGUSR2, signalHandler);
