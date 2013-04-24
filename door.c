@@ -139,12 +139,12 @@ void setLED(int mode) {
 }
 
 void openLock() {
-  fprintf("open door command\n");
+  printf("open door command\n");
   pressButton(BTNOPEN);
 }
 
 void closeLock() {
-  fprintf("close door command\n");
+  printf("close door command\n");
   pressButton(BTNCLOSE);
 }
 
