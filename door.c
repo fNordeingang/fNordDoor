@@ -53,7 +53,7 @@ int main (void)
 
   for (;;)
   {
-    if (isDoorClosed())
+    /*if (isDoorClosed())
     {
       if(isOpenPressed()) {
         setLED(BLUE);
@@ -67,7 +67,7 @@ int main (void)
     usleep(1000000);
     #else
     usleep(10000);
-    #endif
+    #endif*/
   }
   return 0 ;
 }
