@@ -88,7 +88,7 @@ void initPins() {
 
   setLED(OFF);
 
-  setButtonMode(INPUT);
+  setButtonMode(OUTPUT);
   
   digitalWrite(BTNOPEN, 0);
   digitalWrite(BTNCLOSE, 0);
