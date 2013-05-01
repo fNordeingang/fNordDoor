@@ -105,6 +105,8 @@ void initLock() {
   digitalWrite(BTNOPEN, 0);
   usleep(4500000);
   digitalWrite(BTNOPEN, 1);
+  usleep(10000000);
+  pressButton(BTNCLOSE);
   printf("done\n");
 }
 
