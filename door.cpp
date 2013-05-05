@@ -1,6 +1,9 @@
-#include <stdio.h>
-#include <signal.h>
+#include <cstdio>
+#include <csignal>
 #include <unistd.h>
+#include <thread>
+
+#include "irc.h"
 
 #ifndef NOTPI
 #include <wiringPi.h>
@@ -49,6 +52,9 @@ int main (void)
   if (wiringPiSetup () == -1)
     return 1 ;
 
+  //Launch a thread
+  std::thread t1(connect_irc);
+  
   init();
 
   for (;;)
@@ -69,6 +75,7 @@ int main (void)
     usleep(10000);
     #endif*/
   }
+  t1.join();
   return 0 ;
 }
 

@@ -1,16 +1,16 @@
-CXX = g++
-CC = gcc
-OBJS = door.o
+CXX = clang++
+CC = clang
+OBJS = door.o irc.o
 ifndef NOTPI
-LIBS = -lwiringPi
+LIBS = -lwiringPi -lircclient -lpthread
 INCLUDE =	-IwiringPi/wiringPi
-CXXFLAGS = -O3 $(INCLUDE)
-CFLAGS = -O3 $(INCLUDE)
+CXXFLAGS = -O3 -std=c++11 $(INCLUDE)
+CFLAGS = -O3 -std=c++11 $(INCLUDE)
 else
-LIBS = 
+LIBS = -lircclient -lpthread
 INCLUDE =
-CXXFLAGS = -O3 $(INCLUDE) -DNOTPI
-CFLAGS = -O3 $(INCLUDE) -DNOTPI 
+CXXFLAGS = -O3 -std=c++11 $(INCLUDE) -DNOTPI
+CFLAGS = -O3 -std=c++11 $(INCLUDE) -DNOTPI 
 endif
 
 
