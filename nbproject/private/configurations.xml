@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="88">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="fnorddoor">
+      <df name="wiringPi">
+        <df name="examples">
+          <in>blink.c</in>
+          <in>delayTest.c</in>
+          <in>gertboard.c</in>
+          <in>header.h</in>
+          <in>isr-osc.c</in>
+          <in>isr.c</in>
+          <in>lcd.c</in>
+          <in>nes.c</in>
+          <in>okLed.c</in>
+          <in>piface.c</in>
+          <in>pwm.c</in>
+          <in>serialRead.c</in>
+          <in>serialTest.c</in>
+          <in>servo.c</in>
+          <in>speed.c</in>
+          <in>test1.c</in>
+          <in>test2.c</in>
+          <in>tone.c</in>
+          <in>wfi.c</in>
+        </df>
+        <df name="gpio">
+          <in>gpio.c</in>
+        </df>
+        <df name="wiringPi">
+          <in>gertboard.c</in>
+          <in>gertboard.h</in>
+          <in>lcd.c</in>
+          <in>lcd.h</in>
+          <in>piHiPri.c</in>
+          <in>piNes.c</in>
+          <in>piNes.h</in>
+          <in>piThread.c</in>
+          <in>softPwm.c</in>
+          <in>softPwm.h</in>
+          <in>softServo.c</in>
+          <in>softServo.h</in>
+          <in>softTone.c</in>
+          <in>softTone.h</in>
+          <in>wiringPi.c</in>
+          <in>wiringPi.h</in>
+          <in>wiringPiFace.c</in>
+          <in>wiringPiI2C.c</in>
+          <in>wiringPiI2C.h</in>
+          <in>wiringPiSPI.c</in>
+          <in>wiringPiSPI.h</in>
+          <in>wiringSerial.c</in>
+          <in>wiringSerial.h</in>
+          <in>wiringShift.c</in>
+          <in>wiringShift.h</in>
+        </df>
+      </df>
+      <in>door.cpp</in>
+      <in>irc.cpp</in>
+      <in>irc.h</in>
+    </df>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>2</platform>
+      </toolsSet>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+          <variable name="NOTPI" value="1"/>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>

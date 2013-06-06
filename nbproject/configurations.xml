@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="88">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="fnorddoor">
+      <df name="wiringPi">
+        <df name="examples">
+          <in>blink.c</in>
+          <in>delayTest.c</in>
+          <in>gertboard.c</in>
+          <in>isr-osc.c</in>
+          <in>isr.c</in>
+          <in>lcd.c</in>
+          <in>nes.c</in>
+          <in>okLed.c</in>
+          <in>piface.c</in>
+          <in>pwm.c</in>
+          <in>serialRead.c</in>
+          <in>serialTest.c</in>
+          <in>servo.c</in>
+          <in>speed.c</in>
+          <in>test1.c</in>
+          <in>test2.c</in>
+          <in>tone.c</in>
+          <in>wfi.c</in>
+        </df>
+        <df name="gpio">
+          <in>gpio.c</in>
+        </df>
+        <df name="wiringPi">
+          <in>gertboard.c</in>
+          <in>gertboard.h</in>
+          <in>lcd.c</in>
+          <in>lcd.h</in>
+          <in>piHiPri.c</in>
+          <in>piNes.c</in>
+          <in>piNes.h</in>
+          <in>piThread.c</in>
+          <in>softPwm.c</in>
+          <in>softPwm.h</in>
+          <in>softServo.c</in>
+          <in>softServo.h</in>
+          <in>softTone.c</in>
+          <in>softTone.h</in>
+          <in>wiringPi.c</in>
+          <in>wiringPi.h</in>
+          <in>wiringPiFace.c</in>
+          <in>wiringPiI2C.c</in>
+          <in>wiringPiI2C.h</in>
+          <in>wiringPiSPI.c</in>
+          <in>wiringPiSPI.h</in>
+          <in>wiringSerial.c</in>
+          <in>wiringSerial.h</in>
+          <in>wiringShift.c</in>
+          <in>wiringShift.h</in>
+        </df>
+      </df>
+      <in>door.cpp</in>
+      <in>irc.cpp</in>
+      <in>irc.h</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>CLang|CLang</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath>door</executablePath>
+          <ccTool>
+            <preprocessorList>
+              <Elem>NOTPI</Elem>
+            </preprocessorList>
+          </ccTool>
+        </makeTool>
+      </makefileType>
+      <item path="door.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="irc.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="irc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/examples/blink.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/delayTest.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/gertboard.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/isr-osc.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/isr.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/lcd.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/nes.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/okLed.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/piface.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/pwm.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/serialRead.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/serialTest.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/servo.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/speed.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/test1.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/test2.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/tone.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/examples/wfi.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/gpio/gpio.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/gertboard.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/gertboard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/wiringPi/lcd.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/lcd.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/wiringPi/piHiPri.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/piNes.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/piNes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/wiringPi/piThread.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/softPwm.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/softPwm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/wiringPi/softServo.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/softServo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/wiringPi/softTone.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/softTone.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/wiringPi/wiringPi.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/wiringPi.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/wiringPi/wiringPiFace.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/wiringPiI2C.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/wiringPiI2C.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/wiringPi/wiringPiSPI.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/wiringPiSPI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/wiringPi/wiringSerial.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/wiringSerial.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiringPi/wiringPi/wiringShift.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wiringPi/wiringPi/wiringShift.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
