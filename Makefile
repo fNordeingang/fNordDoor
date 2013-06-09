@@ -1,6 +1,6 @@
 OBJS = door.o irc.o
-ARCH := $(uname -m)
-ifeq ($(ARCH),armv6l)
+UNAME := $(shell uname -m)
+ifneq ($(UNAME), x86_64)
 CXX = g++-4.7
 CC = gcc-4.7
 LIBS = -lwiringPi -lircclient -lpthread -lboost_system
@@ -16,6 +16,7 @@ CXXFLAGS = -g -std=c++11 $(INCLUDE) -DNOTPI
 CFLAGS = -g -std=c++11 $(INCLUDE) -DNOTPI 
 endif
 
+CXXFLAGS += -D$(UNAME)
 
 TARGET =	door
 
