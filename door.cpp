@@ -14,7 +14,7 @@
 
 #include "irc.h"
 
-#ifndef NOTPI
+#ifdef armv6l
 #include "wiringPi/wiringPi/wiringPi.h"
 #else
 #define OUTPUT 0
@@ -332,7 +332,7 @@ void pressButton(int btn) {
 }
 
 
-#ifdef NOTPI
+#ifndef armv6l
 
 int wiringPiSetup() { return 0; }
 void pinMode(int p, int m) { printf("pinMode\n"); }
