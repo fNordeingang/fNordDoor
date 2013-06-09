@@ -1,23 +1,16 @@
 #include <cstdio>
 #include <csignal>
 #include <unistd.h>
-#include <boost/thread.hpp>
 #include <ctime>
 #include <mutex>
+#include <thread>
 #include <boost/asio.hpp>
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/xml_parser.hpp>
-#include <boost/property_tree/json_parser.hpp>
 #include <exception>
 #include <iostream>
 #include <istream>
 #include <ostream>
 #include <sstream>
 #include <string>
-
-#include <curlpp/cURLpp.hpp>
-#include <curlpp/Easy.hpp>
-#include <curlpp/Options.hpp>
 
 #include "irc.h"
 
@@ -194,7 +187,7 @@ int main (void)
   std::string wan_ip = get_wan_ip();
 
   door_session = init_irc_session();
-  boost::thread t(connect_irc, boost::ref(door_session));
+  std::thread t(connect_irc, door_session);
 
   init();
 
@@ -213,7 +206,7 @@ int main (void)
           t.join();
           irc_destroy_session(door_session);
           door_session = init_irc_session();
-          t = boost::thread(connect_irc, boost::ref(door_session));
+          t = std::thread(connect_irc, door_session);
         }
       }
       measure.restart();
