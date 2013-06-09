@@ -1,7 +1,6 @@
 OBJS = door.o irc.o
 ARCH := $(uname -m)
-ARMARCH := armv6l
-ifeq ($(ARCH),$(ARMARCH))
+ifeq ($(ARCH),armv6l)
 CXX = g++-4.7
 CC = gcc-4.7
 LIBS = -lwiringPi -lircclient -lpthread -lboost_system
