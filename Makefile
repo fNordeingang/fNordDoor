@@ -1,9 +1,10 @@
 OBJS = door.o irc.o
-ARCH = $(uname -m)
-ifeq ($(ARCH),armv6l)
+ARCH := $(uname -m)
+ARMARCH := armv6l
+ifeq ($(ARCH),$(ARMARCH))
 CXX = g++-4.7
 CC = gcc-4.7
-LIBS = -lwiringPi -lircclient -lpthread -lboost_thread -lboost_system
+LIBS = -lwiringPi -lircclient -lpthread -lboost_system
 INCLUDE = -IwiringPi/wiringPi
 CXXFLAGS = -O3 -std=c++11 $(INCLUDE)
 CFLAGS = -O3 -std=c++11 $(INCLUDE)
