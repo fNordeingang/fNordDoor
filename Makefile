@@ -3,14 +3,14 @@ UNAME := $(shell uname -m)
 ifneq ($(UNAME), x86_64)
 CXX = g++-4.7
 CC = gcc-4.7
-LIBS = -lwiringPi -lircclient -lpthread -lboost_system
+LIBS = -lwiringPi -lircclient -lpthread -lboost_system -lboost_program_options
 INCLUDE = -IwiringPi/wiringPi
 CXXFLAGS = -O3 -std=c++11 $(INCLUDE)
 CFLAGS = -O3 -std=c++11 $(INCLUDE)
 else
 CXX = clang++
 CC = clang
-LIBS = -lircclient -lpthread -lboost_thread -lboost_system
+LIBS = -lircclient -lpthread -lboost_thread -lboost_system -lboost_program_options
 INCLUDE =
 CXXFLAGS = -O3 -std=c++11 $(INCLUDE)
 CFLAGS = -O3 -std=c++11 $(INCLUDE) 

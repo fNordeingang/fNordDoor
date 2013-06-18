@@ -5,6 +5,7 @@
 #include <mutex>
 #include <thread>
 #include <boost/asio.hpp>
+#include <boost/program_options.hpp>
 #include <exception>
 #include <iostream>
 #include <istream>
@@ -38,7 +39,7 @@ int digitalRead(int);
 #define OFF         3
 
 
-void init();
+void init(int noInitLock);
 void initPins();
 void initLock();
 void setButtonMode(int mode);
@@ -176,9 +177,27 @@ std::string get_wan_ip() {
 
 
 using namespace timer;
+namespace po = boost::program_options;
 
-int main (void)
+int main (int ac, char** av)
 {
+
+  po::options_description desc("Allowed options");
+  desc.add_options()
+    ("help", "produce help message")
+    ("no-lock-init", "don't call lock init")
+    ;
+
+  po::variables_map vm;
+  po::store(po::parse_command_line(ac, av, desc), vm);
+  po::notify(vm);    
+
+  if (vm.count("help")) {
+    std::cout << desc << "\n";
+    return 1;
+  }
+
+
   printf ("fNordDoor started!\n");
 
   if (wiringPiSetup () == -1)
@@ -189,7 +208,7 @@ int main (void)
   door_session = init_irc_session();
   std::thread t(connect_irc, door_session);
 
-  init();
+  init(vm.count("no-lock-init"));
 
   StopWatch measure;
 
@@ -234,9 +253,10 @@ int main (void)
   return 0 ;
 }
 
-void init() {
+void init(int noInitLock) {
   initPins();
-  initLock();
+  if(!noInitLock)
+    initLock();
 
   signal(SIGUSR1,
         signalHandler);
