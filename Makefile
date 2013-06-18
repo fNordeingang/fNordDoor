@@ -12,8 +12,8 @@ CXX = clang++
 CC = clang
 LIBS = -lircclient -lpthread -lboost_thread -lboost_system
 INCLUDE =
-CXXFLAGS = -g -std=c++11 $(INCLUDE)
-CFLAGS = -g -std=c++11 $(INCLUDE) 
+CXXFLAGS = -O3 -std=c++11 $(INCLUDE)
+CFLAGS = -O3 -std=c++11 $(INCLUDE) 
 endif
 
 CXXFLAGS += -D$(UNAME)
