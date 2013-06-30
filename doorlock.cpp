@@ -20,7 +20,7 @@ int main(int ac, char *av[])
   po::store(po::parse_command_line(ac, av, desc), vm);
   po::notify(vm);
 
-  if (vm.count("help") || ac == 0) {
+  if (vm.count("help") || ac < 2) {
     std::cout << desc << "\n";
     return 1;
   }
