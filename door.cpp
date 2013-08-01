@@ -59,9 +59,19 @@ void setLED(int mode) {
   }
 }
 
+void sendSequence(int d1, int d2, int port) {
+  digitalWrite(port, HIGH);
+  usleep(d1*100);
+  digitalWrite(port, LOW);
+  usleep(d2);
+  digitalWrite(port, HIGH);
+}
+
 void openLock() {
   printf("open door command\n");
-  pressButton(BTNOPEN);
+  sendSequence(120, 100, BTNOPEN);
+  sendSequence(80,  110, BTNOPEN);
+  sendSequence(130, 90,  BTNOPEN);
   setLED(BLUE);
 }
 

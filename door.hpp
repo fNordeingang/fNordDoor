@@ -6,6 +6,8 @@
 #else
 #define OUTPUT 0
 #define INPUT  1
+#define HIGH   1
+#define LOW    0
 int wiringPiSetup();
 void pinMode(int,int);
 void digitalWrite(int,int);
@@ -38,5 +40,6 @@ int isDoorClosed();
 
 void openLock();
 void closeLock();
+void sendSequence(int d1, int d2, int port);
 
 #endif
