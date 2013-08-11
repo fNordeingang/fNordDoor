@@ -19,31 +19,16 @@ void initPins() {
 
   setLED(OFF);
 
-  setButtonMode(OUTPUT);
+  setSenseMode(OUTPUT);
 
-  digitalWrite(BTNOPEN, 1);
-  digitalWrite(BTNCLOSE, 1);
+  digitalWrite(SENSE0, LOW);
+  digitalWrite(SENSE1, LOW);
   printf("done\n");
 }
 
-void initLock() {
-  printf("initializing doorlock...");
-  fflush(stdout);
-  digitalWrite(BTNOPEN, 0);
-  usleep(500000);
-  digitalWrite(BTNOPEN, 1);
-  usleep(500000);
-  digitalWrite(BTNOPEN, 0);
-  usleep(4500000);
-  digitalWrite(BTNOPEN, 1);
-  usleep(10000000);
-  pressButton(BTNCLOSE);
-  printf("done\n");
-}
-
-void setButtonMode(int mode) {
-  pinMode(BTNOPEN, mode);
-  pinMode(BTNCLOSE, mode);
+void setSenseMode(int mode) {
+  pinMode(SENSE0, mode);
+  pinMode(SENSE1, mode);
 }
 
 void setLED(int mode) {
@@ -59,43 +44,25 @@ void setLED(int mode) {
   }
 }
 
-void sendSequence(int d1, int d2, int port) {
-  digitalWrite(port, HIGH);
-  usleep(d1*100);
-  digitalWrite(port, LOW);
-  usleep(d2);
-  digitalWrite(port, HIGH);
+void sendSequence(int sense0, int sense1) {
+  digitalWrite(SENSE0, sense0);
+  digitalWrite(SENSE1, sense1);
+  usleep(1200*100);
 }
 
 void openLock() {
   printf("open door command\n");
-  sendSequence(120, 100, BTNOPEN);
-  sendSequence(80,  110, BTNOPEN);
-  sendSequence(130, 90,  BTNOPEN);
+  sendSequence(HIGH, HIGH);
+  sendSequence(LOW, LOW);
+  sendSequence(LOW, HIGH);
   setLED(BLUE);
 }
 
 void closeLock() {
   printf("close door command\n");
-  pressButton(BTNCLOSE);
+  sendSequence(HIGH, HIGH);
+  sendSequence(LOW, LOW);
+  sendSequence(HIGH, LOW);
   setLED(RED);
-}
-
-int isOpenPressed() {
-  return digitalRead(BTNOPEN);
-}
-
-int isClosePressed() {
-  return digitalRead(BTNCLOSE);
-}
-
-int isDoorClosed() {
-  return !digitalRead(BTNDOOR);
-}
-
-void pressButton(int btn) {
-  digitalWrite(btn, 0);
-  usleep(500000);
-  digitalWrite(btn, 1);
 }
 

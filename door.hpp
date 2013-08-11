@@ -15,8 +15,8 @@ int digitalRead(int);
 #endif
 
 
-#define BTNOPEN     7
-#define BTNCLOSE   15
+#define SENSE0     7
+#define SENSE1     15
 #define BTNDOOR    11
 
 #define LEDRED      8
@@ -28,11 +28,8 @@ int digitalRead(int);
 
 
 void initPins();
-void initLock();
-void setButtonMode(int mode);
-void signalHandler(int sig);
+void setSenseMode(int mode);
 void setLED(int mode);
-void pressButton(int btn);
 
 int isOpenPressed();
 int isClosePressed();

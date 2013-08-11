@@ -33,7 +33,7 @@ int main(int ac, char *av[])
     return 0;
   }
   else if (vm.count("init-lock")) {
-    initLock();
+    //initLock();
     return 1;
   }
   else if (vm.count("openlock")) {

@@ -1,51 +1,67 @@
 #include "friendly_launchpad.h"
 
 
-#define PORTOPEN   10
-#define PORTCLOSE  11
-#define PORTSENSE  12
-#define LED        13
+#define LED         10
+#define PORTOPEN    11
+#define PORTCLOSE   12
+#define PORTSENSE0  13
+#define PORTSENSE1  14
 
-#define STATE0     0
-#define STATE1     1
-#define STATE2     2
-#define STATE3     3
+#define STATE0      0
+#define STATE1      1
+#define STATE2      2
+#define STATE3      3
+#define STATE4      4
 
 int state;
 
-int sensePort();
-int sequence(int d1, int d2, int next_state, int prev_state);
+int blink(int times);
+int sequence(int sense0, int sense1, int next_state, int prev_state);
+void closeLock();
+void openLock();
 
 void setup() {
   state = STATE0;
 
   pinMode(PORTOPEN, OUTPUT);
   pinMode(PORTCLOSE, OUTPUT);
-  pinMode(PORTSENSE, INPUT);
+  pinMode(PORTSENSE0, INPUT);
+  pinMode(PORTSENSE1, INPUT);
   pinMode(LED, OUTPUT);
 
-  digitalWrite(PORTOPEN, HIGH);
-  digitalWrite(PORTCLOSE, HIGH);
+  digitalWrite(PORTOPEN, LOW);
+  digitalWrite(PORTCLOSE, LOW);
+  digitalWrite(PORTSENSE0, LOW);
+  digitalWrite(PORTSENSE1, LOW);
   digitalWrite(LED, LOW);
 }
 
 void loop() {
   switch(state) {
     case STATE0:
-      state = sequence(120,100,STATE1,STATE0);
+      blink(1);
+      state = sequence(HIGH,HIGH,STATE1,STATE0);
       break;
     case STATE1:
-      state = sequence(80,110,STATE2,STATE0);
+      blink(2);
+      state = sequence(LOW,LOW,STATE2,STATE1);
       break;
     case STATE2:
-      state = sequence(130,90,STATE3,STATE0);
+      blink(3);
+      state = sequence(HIGH,LOW,STATE3,STATE2);
+      if(state != STATE3) {
+        state = sequence(LOW,HIGH,STATE4,STATE2);
+      }
       break;
     case STATE3:
+      blink(4);
       state = STATE0;
-      digitalWrite(LED, HIGH);
-      digitalWrite(PORTOPEN, LOW);
-      delay(500);
-      digitalWrite(PORTOPEN, HIGH);
+      openLock();
+      break;
+    case STATE4:
+      blink(5);
+      state = STATE0;
+      closeLock();
       break;
     default:
       break;
@@ -53,23 +69,34 @@ void loop() {
   
 }
 
-int sequence(int d1, int d2, int next_state, int prev_state) {
-  int state;
-
-  if(sensePort()) {
-    delay(d1);
-    if(!sensePort()) {
-      delay(d2);
-      if(sensePort())
-        state = next_state;
-      else state = prev_state;
-    } else state = prev_state;
-  } else state = prev_state;
-
-  return state;
+void openLock() {
+  digitalWrite(PORTOPEN, HIGH);
+  delay(500);
+  digitalWrite(PORTOPEN, LOW);
 }
 
-int sensePort() {
-  return digitalRead(PORTSENSE) == HIGH;
+void closeLock() {
+  digitalWrite(PORTCLOSE, HIGH);
+  delay(500);
+  digitalWrite(PORTCLOSE, LOW);
+}
+
+int sequence(int sense0, int sense1, int next_state, int prev_state) {
+  if((digitalRead(PORTSENSE0) == sense0) && (digitalRead(PORTSENSE1) == sense1)) {
+    return next_state;
+  }
+  else
+    return prev_state;
+}
+
+int blink(int times) {
+  for(int i = 0; i < times; i++) {
+    digitalWrite(LED, HIGH);
+    delay(80);
+    digitalWrite(LED, LOW);
+    delay(80);
+  }
+  delay(1000);
+  return times;
 }
 
