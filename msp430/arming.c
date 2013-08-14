@@ -14,14 +14,27 @@
 #define STATE4      4
 
 int state;
+unsigned int state_counter;
 
 int blink(int times);
 int sequence(int sense0, int sense1, int next_state, int prev_state);
 void closeLock();
 void openLock();
 
+void resetState() {
+  if(state_counter > 2) {
+    state = STATE0;
+    state_counter = 0;
+    return;
+  }
+  else {
+    state_counter++;
+  }
+}
+
 void setup() {
   state = STATE0;
+  state_counter = 0;
 
   pinMode(PORTOPEN, OUTPUT);
   pinMode(PORTCLOSE, OUTPUT);
@@ -45,6 +58,7 @@ void loop() {
     case STATE1:
       blink(2);
       state = sequence(LOW,LOW,STATE2,STATE1);
+      resetState();
       break;
     case STATE2:
       blink(3);
@@ -52,6 +66,7 @@ void loop() {
       if(state != STATE3) {
         state = sequence(LOW,HIGH,STATE4,STATE2);
       }
+      resetState();
       break;
     case STATE3:
       blink(4);
