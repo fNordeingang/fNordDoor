@@ -63,7 +63,7 @@ void loop() {
     case STATE2:
       blink(3);
       state = sequence(HIGH,LOW,STATE3,STATE2);
-      if(state != STATE3) {
+      if(state == STATE2) {
         state = sequence(LOW,HIGH,STATE4,STATE2);
       }
       resetState();
