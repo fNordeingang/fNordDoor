@@ -107,11 +107,11 @@ int sequence(int sense0, int sense1, int next_state, int prev_state) {
 int blink(int times) {
   for(int i = 0; i < times; i++) {
     digitalWrite(LED, HIGH);
-    delay(80);
+    delay(50);
     digitalWrite(LED, LOW);
-    delay(80);
+    delay(50);
   }
-  delay(300);
+  delay(250);
   return times;
 }
 
