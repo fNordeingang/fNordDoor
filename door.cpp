@@ -55,7 +55,7 @@ void openLock() {
   log_info("open door command");
   sendSequence(HIGH, HIGH);
   sendSequence(LOW, LOW);
-  sendSequence(LOW, HIGH);
+  sendSequence(HIGH, LOW);
   setLED(BLUE);
 }
 
@@ -63,7 +63,7 @@ void closeLock() {
   log_info("close door command");
   sendSequence(HIGH, HIGH);
   sendSequence(LOW, LOW);
-  sendSequence(HIGH, LOW);
+  sendSequence(LOW, HIGH);
   setLED(RED);
 }
 

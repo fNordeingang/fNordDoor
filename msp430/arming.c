@@ -22,7 +22,7 @@ void closeLock();
 void openLock();
 
 void resetState() {
-  if(state_counter > 2) {
+  if(state_counter > 3) {
     state = STATE0;
     state_counter = 0;
     return;
