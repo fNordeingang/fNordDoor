@@ -3,3 +3,5 @@ tags
 *.swp
 *.log
 door
+doorlock
+msp430/arming
