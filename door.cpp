@@ -48,7 +48,7 @@ void setLED(int mode) {
 void sendSequence(int sense0, int sense1) {
   digitalWrite(SENSE0, sense0);
   digitalWrite(SENSE1, sense1);
-  delay(3000);
+  delay(1600);
 }
 
 void openLock() {

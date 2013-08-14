@@ -111,7 +111,7 @@ int blink(int times) {
     digitalWrite(LED, LOW);
     delay(80);
   }
-  delay(1000);
+  delay(300);
   return times;
 }
 
