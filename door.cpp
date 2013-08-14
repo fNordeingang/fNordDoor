@@ -3,17 +3,18 @@
 #include <iostream>
 
 #include "door.hpp"
+#include "dbg.h"
 
 #ifndef armv6l
 int wiringPiSetup() { return 0; }
-void pinMode(int p, int m) { printf("pinMode\n"); }
-void digitalWrite(int p, int v) { printf("digitalWrite\n"); }
-int digitalRead(int p) { printf("digitalRead\n"); return 1; }
+void pinMode(int p, int m) { log_info("pinMode"); }
+void digitalWrite(int p, int v) { log_info("digitalWrite"); }
+int digitalRead(int p) { log_info("digitalRead"); return 1; }
+void delay(int i) { usleep(i*100); }
 #endif
 
 void initPins() {
-  printf("initializing pins...");
-  fflush(stdout);
+  log_info("initializing pins...");
   pinMode(LEDRED, OUTPUT);
   pinMode(LEDBLUE, OUTPUT);
 
@@ -23,7 +24,7 @@ void initPins() {
 
   digitalWrite(SENSE0, LOW);
   digitalWrite(SENSE1, LOW);
-  printf("done\n");
+  log_info("done");
 }
 
 void setSenseMode(int mode) {
@@ -51,7 +52,7 @@ void sendSequence(int sense0, int sense1) {
 }
 
 void openLock() {
-  printf("open door command\n");
+  log_info("open door command");
   sendSequence(HIGH, HIGH);
   sendSequence(LOW, LOW);
   sendSequence(LOW, HIGH);
@@ -59,7 +60,7 @@ void openLock() {
 }
 
 void closeLock() {
-  printf("close door command\n");
+  log_info("close door command");
   sendSequence(HIGH, HIGH);
   sendSequence(LOW, LOW);
   sendSequence(HIGH, LOW);
