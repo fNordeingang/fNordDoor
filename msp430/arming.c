@@ -42,8 +42,8 @@ void setup() {
   pinMode(PORTSENSE1, INPUT);
   pinMode(LED, OUTPUT);
 
-  digitalWrite(PORTOPEN, LOW);
-  digitalWrite(PORTCLOSE, LOW);
+  digitalWrite(PORTOPEN, HIGH);
+  digitalWrite(PORTCLOSE, HIGH);
   digitalWrite(PORTSENSE0, LOW);
   digitalWrite(PORTSENSE1, LOW);
   digitalWrite(LED, LOW);
@@ -85,15 +85,15 @@ void loop() {
 }
 
 void openLock() {
-  digitalWrite(PORTOPEN, HIGH);
-  delay(500);
   digitalWrite(PORTOPEN, LOW);
+  delay(500);
+  digitalWrite(PORTOPEN, HIGH);
 }
 
 void closeLock() {
-  digitalWrite(PORTCLOSE, HIGH);
-  delay(500);
   digitalWrite(PORTCLOSE, LOW);
+  delay(500);
+  digitalWrite(PORTCLOSE, HIGH);
 }
 
 int sequence(int sense0, int sense1, int next_state, int prev_state) {
